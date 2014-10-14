@@ -1,0 +1,1 @@
+Attempts at making a poker hand evaluator in Python
