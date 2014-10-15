@@ -1,5 +1,3 @@
-from pokerHands.model import Suit
-
 __author__ = 'Cyrus'
 
 import unittest
@@ -19,3 +17,6 @@ class SuitTestCase(unittest.TestCase):
         self.assertEqual(Suit.Clubs, Suit.find('C'))
         self.assertEqual(Suit.Diamonds, Suit.find('D'))
         self.assertEqual(Suit.NULL, Suit.find('Z'))
+
+if __name__ == '__main__':
+    unittest.main()
