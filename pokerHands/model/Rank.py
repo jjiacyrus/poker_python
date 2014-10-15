@@ -17,6 +17,10 @@ class Rank(Enum):
     King = 13
     Ace = 14
 
+    def __lt__(self, other):
+        return self.value < other.value
+
+
     @staticmethod
     def find(abbreviation):
         if abbreviation == '2':
@@ -28,7 +32,7 @@ class Rank(Enum):
         elif abbreviation == '5':
             return Rank.Five
         elif abbreviation == '6':
-            return Rank.Two
+            return Rank.Six
         elif abbreviation == '7':
             return Rank.Seven
         elif abbreviation == '8':

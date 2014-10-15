@@ -1,4 +1,8 @@
 from pokerHands.game.HandType import HandType
+from pokerHands.game.HighCard import HighCard
+from pokerHands.game.ThreeOfAKind import ThreeOfAKind
+from pokerHands.game.TwoOfAKind import TwoOfAKind
+from pokerHands.game.TwoPair import TwoPair
 from pokerHands.model.Rank import Rank
 
 
@@ -15,10 +19,10 @@ class HandEvaluator(object):
         elif hand.is_a_straight():
             return HandType.Straight
         elif hand.get_three_of_a_kind() != Rank.NULL:
-            return HandType.Three_of_a_Kind
+            return ThreeOfAKind()
         elif len(hand.get_pairs()) == 2:
-            return HandType.Two_Pair
+            return TwoPair()
         elif len(hand.get_pairs()) == 1:
-            return HandType.Two_of_a_Kind
+            return TwoOfAKind()
         else:
-            return HandType.High_Card
+            return HighCard()

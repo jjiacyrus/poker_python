@@ -21,6 +21,17 @@ class RankTestCase(unittest.TestCase):
         self.assertEqual(Rank.King.value, 13)
         self.assertEqual(Rank.Ace.value, 14)
 
+    def test_is_comparable_less_than(self):
+        self.assertTrue(Rank.NULL < Rank.Two)
+        self.assertTrue(Rank.Two < Rank.Three)
+        self.assertTrue(Rank.Four < Rank.Five)
+
+    def test_is_comparable_greater_than(self):
+        self.assertTrue(Rank.Five > Rank.Two)
+        self.assertTrue(Rank.Ace > Rank.Three)
+        self.assertTrue(Rank.Six > Rank.Five)
+
+
     def test_find_by_abbreviation(self):
         self.assertEqual(Rank.Two, Rank.find('2'))
         self.assertEqual(Rank.Three, Rank.find('3'))
@@ -36,6 +47,7 @@ class RankTestCase(unittest.TestCase):
         self.assertEqual(Rank.King, Rank.find('K'))
         self.assertEqual(Rank.Ace, Rank.find('A'))
         self.assertEqual(Rank.NULL, Rank.find('D'))
+
 
 if __name__ == '__main__':
     unittest.main()

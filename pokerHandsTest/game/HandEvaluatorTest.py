@@ -1,6 +1,10 @@
 import unittest
+from pokerHands.game.HighCard import HighCard
+from pokerHands.game.ThreeOfAKind import ThreeOfAKind
+from pokerHands.game.TwoOfAKind import TwoOfAKind
 from pokerHands.game.HandType import HandType
 from pokerHands.game.HandEvaluator import HandEvaluator
+from pokerHands.game.TwoPair import TwoPair
 from pokerHands.model.Card import Card
 from pokerHands.model.Hand import Hand
 from pokerHands.model.Rank import Rank
@@ -72,7 +76,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Six)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Three_of_a_Kind, self.evaluator.evaluate(hand))
+        self.assertEqual(ThreeOfAKind(), self.evaluator.evaluate(hand))
 
     def test_evaluate_two_pair(self):
         card1 = Card(Suit.Spades, Rank.Two)
@@ -82,7 +86,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Six)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Two_Pair, self.evaluator.evaluate(hand))
+        self.assertEqual(TwoPair(), self.evaluator.evaluate(hand))
 
     def test_evaluate_two_of_a_kind(self):
         card1 = Card(Suit.Spades, Rank.Two)
@@ -92,7 +96,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Six)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Two_of_a_Kind, self.evaluator.evaluate(hand))
+        self.assertEqual(TwoOfAKind(), self.evaluator.evaluate(hand))
 
     def test_high_card(self):
         card1 = Card(Suit.Hearts, Rank.Ace)
@@ -102,7 +106,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Jack)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.High_Card, self.evaluator.evaluate(hand))
+        self.assertEqual(HighCard(), self.evaluator.evaluate(hand))
 
 
 if __name__ == '__main__':
