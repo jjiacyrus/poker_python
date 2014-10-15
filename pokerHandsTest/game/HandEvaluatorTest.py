@@ -1,8 +1,12 @@
 import unittest
+from pokerHands.game.FourOfAKind import FourOfAKind
+from pokerHands.game.Flush import Flush
+from pokerHands.game.FullHouse import FullHouse
 from pokerHands.game.HighCard import HighCard
+from pokerHands.game.Straight import Straight
+from pokerHands.game.StraightFlush import StraightFlush
 from pokerHands.game.ThreeOfAKind import ThreeOfAKind
 from pokerHands.game.TwoOfAKind import TwoOfAKind
-from pokerHands.game.HandType import HandType
 from pokerHands.game.HandEvaluator import HandEvaluator
 from pokerHands.game.TwoPair import TwoPair
 from pokerHands.model.Card import Card
@@ -26,7 +30,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Seven)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Straight_Flush, self.evaluator.evaluate(hand))
+        self.assertEqual(StraightFlush(), self.evaluator.evaluate(hand))
 
     def test_evaluate_full_house(self):
         card1 = Card(Suit.Diamonds, Rank.Jack)
@@ -36,7 +40,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Ten)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Full_House, self.evaluator.evaluate(hand))
+        self.assertEqual(FullHouse(), self.evaluator.evaluate(hand))
 
     def test_evaluate_four_of_a_kind(self):
         card1 = Card(Suit.Diamonds, Rank.Jack)
@@ -46,7 +50,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Four)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Four_of_a_Kind, self.evaluator.evaluate(hand))
+        self.assertEqual(FourOfAKind(), self.evaluator.evaluate(hand))
 
     def test_evaluate_flush(self):
         card1 = Card(Suit.Diamonds, Rank.Ace)
@@ -56,7 +60,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Four)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Flush, self.evaluator.evaluate(hand))
+        self.assertEqual(Flush(), self.evaluator.evaluate(hand))
 
     def test_evaluate_straight(self):
         card1 = Card(Suit.Spades, Rank.Two)
@@ -66,7 +70,7 @@ class HandEvaluatorTestCase(unittest.TestCase):
         card5 = Card(Suit.Diamonds, Rank.Six)
         hand = Hand(card1, card2, card3, card4, card5)
 
-        self.assertEqual(HandType.Straight, self.evaluator.evaluate(hand))
+        self.assertEqual(Straight(), self.evaluator.evaluate(hand))
 
     def test_evaluate_three_of_a_kind(self):
         card1 = Card(Suit.Spades, Rank.Two)

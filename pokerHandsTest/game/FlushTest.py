@@ -225,7 +225,7 @@ class FlushTestCase(unittest.TestCase):
         hand2 = Hand(card6, card7, card8, card9, card10)
 
         self.assertEqual(Winner.Tie, Flush().resolve(hand1, hand2))
-        
+
 
 if __name__ == '__main__':
     unittest.main()
