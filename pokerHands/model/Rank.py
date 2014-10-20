@@ -39,7 +39,7 @@ class Rank(Enum):
             return Rank.Eight
         elif abbreviation == '9':
             return Rank.Nine
-        elif abbreviation == '10':
+        elif abbreviation == 'T':
             return Rank.Ten
         elif abbreviation == 'J':
             return Rank.Jack

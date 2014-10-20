@@ -31,7 +31,6 @@ class RankTestCase(unittest.TestCase):
         self.assertTrue(Rank.Ace > Rank.Three)
         self.assertTrue(Rank.Six > Rank.Five)
 
-
     def test_find_by_abbreviation(self):
         self.assertEqual(Rank.Two, Rank.find('2'))
         self.assertEqual(Rank.Three, Rank.find('3'))
@@ -41,7 +40,7 @@ class RankTestCase(unittest.TestCase):
         self.assertEqual(Rank.Seven, Rank.find('7'))
         self.assertEqual(Rank.Eight, Rank.find('8'))
         self.assertEqual(Rank.Nine, Rank.find('9'))
-        self.assertEqual(Rank.Ten, Rank.find('10'))
+        self.assertEqual(Rank.Ten, Rank.find('T'))
         self.assertEqual(Rank.Jack, Rank.find('J'))
         self.assertEqual(Rank.Queen, Rank.find('Q'))
         self.assertEqual(Rank.King, Rank.find('K'))
